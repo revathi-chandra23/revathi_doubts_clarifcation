@@ -1,0 +1,28 @@
+public class Singleton {
+    // Static instance
+    private static Singleton instance;
+
+    // Private constructor
+    private Singleton() {}
+
+    // Synchronized method to get instance
+    public static synchronized Singleton getInstance() {
+        if (instance == null) {
+            instance = new Singleton();
+        }
+        return instance;
+    }
+
+    public void showMessage() {
+        System.out.println("Singleton instance created!");
+    }
+
+    public static void main(String[] args) {
+        Singleton singleton1 = Singleton.getInstance();
+        Singleton singleton2 = Singleton.getInstance();
+
+        // Both instances are the same
+        System.out.println(singleton1 == singleton2); // true
+        singleton1.showMessage();
+    }
+}
