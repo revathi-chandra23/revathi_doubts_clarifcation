@@ -1,0 +1,15 @@
+class Demo {
+    Object lock1 = new Object();
+    Object lock2 = new Object();
+
+    synchronized void m1() {} // locks this
+
+    void m2() {
+        synchronized(lock1) { // locks lock1 only
+            // critical section 1
+        }
+        synchronized(lock2) { // locks lock2 only
+            // critical section 2, can run parallel with m2
+        }
+    }
+}
