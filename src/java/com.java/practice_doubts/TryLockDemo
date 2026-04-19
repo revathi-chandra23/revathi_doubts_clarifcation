@@ -1,0 +1,58 @@
+import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.TimeUnit;
+
+class TryLockDemo {
+    private final ReentrantLock lock1 = new ReentrantLock();
+    private final ReentrantLock lock2 = new ReentrantLock();
+
+    public void method1() throws InterruptedException {
+        if (lock1.tryLock(1, TimeUnit.SECONDS)) {
+            try {
+                System.out.println("T1: got lock1");
+                Thread.sleep(100);
+                if (lock2.tryLock(1, TimeUnit.SECONDS)) {
+                    try {
+                        System.out.println("T1: got lock2, working...");
+                    } finally {
+                        lock2.unlock();
+                    }
+                } else {
+                    System.out.println("T1: could not get lock2, backing off");
+                }
+            } finally {
+                lock1.unlock();
+            }
+        }
+    }
+
+    public void method2() throws InterruptedException {
+        if (lock2.tryLock(1, TimeUnit.SECONDS)) {
+            try {
+                System.out.println("T2: got lock2");
+                Thread.sleep(100);
+                if (lock1.tryLock(1, TimeUnit.SECONDS)) {
+                    try {
+                        System.out.println("T2: got lock1, working...");
+                    } finally {
+                        lock1.unlock();
+                    }
+                } else {
+                    System.out.println("T2: could not get lock1, backing off");
+                }
+            } finally {
+                lock2.unlock();
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        TryLockDemo d = new TryLockDemo();
+        new Thread(() -> {
+            try { d.method1(); } catch (Exception e) {}
+        }).start();
+        new Thread(() -> {
+            try { d.method2(); } catch (Exception e) {}
+        }).start();
+        // No deadlock. Threads back off instead of waiting forever
+    }
+}
