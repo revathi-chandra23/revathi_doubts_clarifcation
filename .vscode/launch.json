@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "MaximumValue",
+            "request": "launch",
+            "mainClass": "streams_examples.MaximumValue",
+            "projectName": "revathi_doubts_clarification_f3e0184f"
+        },
+        {
+            "type": "java",
+            "name": "FindTotalNumberOfElements",
+            "request": "launch",
+            "mainClass": "streams_examples.FindTotalNumberOfElements",
+            "projectName": "revathi_doubts_clarification_f3e0184f"
+        },
+        {
+            "type": "java",
+            "name": "FindFirstElemnt",
+            "request": "launch",
+            "mainClass": "streams_examples.FindFirstElemnt",
+            "projectName": "revathi_doubts_clarification_f3e0184f"
+        },
+        {
+            "type": "java",
             "name": "ToFindDuplicates",
             "request": "launch",
             "mainClass": "streams_examples.ToFindDuplicates",
