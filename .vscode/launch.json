@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "NumberWithStartswithOne",
+            "request": "launch",
+            "mainClass": "streams_examples.NumberWithStartswithOne",
+            "projectName": "revathi_doubts_clarification_f3e0184f"
+        },
+        {
+            "type": "java",
             "name": "book",
             "request": "launch",
             "mainClass": "book",
