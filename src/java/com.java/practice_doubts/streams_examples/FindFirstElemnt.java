@@ -9,5 +9,4 @@ public class FindFirstElemnt {
           int res=myList.stream().findFirst().orElse(-1);
             System.out.println(res);
     }
-    
 }

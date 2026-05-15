@@ -1,7 +1,7 @@
 package streams_examples;
 
 import java.util.Arrays;
-import java.util.List;
+import java.util.List;       
 
 public class MaximumValue {
     public static void main(String[] args) {
