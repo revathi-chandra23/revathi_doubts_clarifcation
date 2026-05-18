@@ -1,7 +1,5 @@
 package streams_examples;
 import java.util.*;
-import java.util.stream.*;
-import java.util.function.Function;
 
 public class SortDescending{
   public static void main(String args[]) {
