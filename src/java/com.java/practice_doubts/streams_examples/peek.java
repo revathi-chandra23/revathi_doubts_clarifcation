@@ -1,5 +1,5 @@
 package streams_examples;
-
+import java.util.*;
 public class peek {
     public static void main(String[] args) {
         List<String> list = Arrays.asList("Java", "Python", "JavaScript", "C++");

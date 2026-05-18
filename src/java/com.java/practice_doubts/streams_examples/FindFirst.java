@@ -1,4 +1,5 @@
 package streams_examples;
+import java.util.*;
 
 public class FindFirst {
     public static void main(String[] args) {
